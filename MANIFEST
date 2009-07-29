@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+scripts/ucm2asciidoc
+ucm2asciidoc/__init__.py
+ucm2asciidoc/base_xmls.py
+ucm2asciidoc/pyxmls.py
+ucm2asciidoc/ucm_xmls.py
+ucm2asciidoc/xmls2asciidoc.py

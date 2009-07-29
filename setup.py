@@ -19,5 +19,4 @@ setup(name='ucm2asciidoc',
       url='',
       packages=['ucm2asciidoc'],
       scripts=['scripts/ucm2asciidoc'],
-      #data_files=[('license', ['LICENSE']),],
       license='BSD')
