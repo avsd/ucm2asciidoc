@@ -211,7 +211,7 @@ def main(argv):
              "output=", "verbose", "title="])
 
         infile = args[0]
-        outfile = os.path.splitext(os.path.split(infile)[1])[0]
+        outfile = None
         title = outfile
 
     except getopt.GetoptError, err:
@@ -243,7 +243,8 @@ def main(argv):
             title = a
     params['cpt_title'] = title
 
-    outfile = "%s.%s" % (outfile,
+    outfile = outfile or "%s.%s" % (
+        os.path.splitext(os.path.split(infile)[1])[0],
         {'asciidoc':'asciidoc',
          'docbook':'xml',
          'html':'html'}.get(format,'xml'))
