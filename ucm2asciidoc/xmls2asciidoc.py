@@ -9,7 +9,7 @@ Copyright (c) David Avsajanishvili, 2009
 
 import ucm_xmls
 from pyxmls import *
-import getopt, os, re 
+import getopt, os, re, codecs
 
 TOP_COMMENT = \
 r"""// ''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -133,7 +133,7 @@ def ucmodel_to_asciidoc(
 
 
 %s""" % (cpt_title, cpt_char * len(cpt_title), ret)
-        
+
     return ret
 
 
@@ -210,7 +210,7 @@ def main(argv):
             ["title-char=", "format=",
              "output=", "verbose", "title="])
 
-        infile = args[0]
+        infile = unicode(args[0],"utf8")
         outfile = None
         title = outfile
 
@@ -224,9 +224,9 @@ def main(argv):
         return -2        
 
     
-    for o, a in opts:
+    for o, a in opts:	
         if   o in ("-c", "--title-char"):
-            a = a.strip()
+            a = unicode(a,"utf8").strip()
             if len(a) > 1:
                 params['cpt_char'] = a[0]
                 params['title_char'] = a[1]
@@ -236,14 +236,14 @@ def main(argv):
         elif o in ("-v", "--verbose"):
             verbose = True
         elif o in ("-o", "--output"):
-            outfile = a
+            outfile = unicode(a,"utf8")
         elif o in ("-f", "--format"):
-            format = a
+            format = unicode(a,"utf8")
         elif o in ("-t", "--title"):
-            title = a
+            title = unicode(a,"utf8")
     params['cpt_title'] = title
 
-    outfile = outfile or "%s.%s" % (
+    outfile = outfile or u"%s.%s" % (
         os.path.splitext(os.path.split(infile)[1])[0],
         {'asciidoc':'asciidoc',
          'docbook':'xml',
@@ -261,7 +261,7 @@ def main(argv):
     if format == 'asciidoc':
         # Write ASCIIDOC
         f = open(outfile, "w")
-        f.write(ret)
+        f.write(codecs.encode(ret,"utf8"))
         f.close()
     else:
         # Generate ASCIIDOC
@@ -273,7 +273,7 @@ def main(argv):
                             '--verbose' if verbose else '',
                         )
                 )
-            f1.write(ret)
+            f1.write(codecs.encode(ret,"utf8"))
             f1.close()
             print f2.read()
         finally:
