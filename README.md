@@ -99,7 +99,7 @@ Let's see an example. Say, we have an example file called
 of two Use Cases (the sample could be downloaded
 [here](https://github.com/avsd/ucm2asciidoc/blob/master/samples/SampleUseCase.ucm)):
 
-![Sampel Use Case](https://github.com/avsd/ucm2asciidoc/blob/master/samples/SampleUseCase3.png)
+![Sampel Use Case](samples/SampleUseCase3.png)
 
 If we call `ucm2asciidoc` with filename parameter only,
 an !AsciiDoc source will be generated:
@@ -173,7 +173,7 @@ document:
 To make this example working [http://www.methods.co.nz/asciidoc/ AsciiDoc]
 should be installed in the System. The result is:
 
-![Sampel HTML](https://github.com/avsd/ucm2asciidoc/blob/master/samples/SampleUseCase5-html.png)
+![Sampel HTML](samples/SampleUseCase5-html.png)
 
 
 ###Generating PDF
@@ -189,7 +189,7 @@ to create TeX from DocBook. By running the command:
 
 we get a PDF file, named "SampleUseCase.pdf":
 
-![Sample PDF](https://github.com/avsd/ucm2asciidoc/blob/master/samples/SampleUseCase5-pdf.png)
+![Sample PDF](samples/SampleUseCase5-pdf.png)
 
 ##Installation
 
